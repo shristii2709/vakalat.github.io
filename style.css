@@ -623,6 +623,7 @@ nav {
 .footer-logo img {
     width: 150px;
     height: auto;
+    border-radius: 25px;
     object-fit: contain;
     margin-bottom: 20px;
 }
