@@ -1,306 +1,258 @@
-// JavaScript for Vakalat Website
-
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile Navigation Toggle
-    const mobileMenuSetup = () => {
-        const header = document.querySelector('header');
-        const navLinks = document.querySelector('.nav-links');
-        
-        // Create mobile menu button if it doesn't exist
-        if (!document.querySelector('.mobile-menu-btn')) {
-            const mobileBtn = document.createElement('button');
-            mobileBtn.className = 'mobile-menu-btn';
-            mobileBtn.innerHTML = '<i class="fas fa-bars"></i>';
-            
-            // Insert before nav-links
-            if (navLinks) {
-                navLinks.parentNode.insertBefore(mobileBtn, navLinks);
-                
-                // Toggle mobile menu
-                mobileBtn.addEventListener('click', function() {
-                    navLinks.classList.toggle('active');
-                    
-                    // Change icon based on menu state
-                    if (navLinks.classList.contains('active')) {
-                        mobileBtn.innerHTML = '<i class="fas fa-times"></i>';
-                    } else {
-                        mobileBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                    }
-                });
-                
-                // Close menu when clicking outside
-                document.addEventListener('click', function(event) {
-                    const isClickInside = navLinks.contains(event.target) || 
-                                         mobileBtn.contains(event.target);
-                    
-                    if (!isClickInside && navLinks.classList.contains('active')) {
-                        navLinks.classList.remove('active');
-                        mobileBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                    }
-                });
-            }
+    // Initialize AOS animation library
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 800,
+            easing: 'ease',
+            once: true,
+            offset: 100
+        });
+    } else {
+        console.warn("AOS library not loaded");
+    }
+
+    // Header scroll effect
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
         }
-    };
+    });
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     
-    // Initialize mobile menu
-    mobileMenuSetup();
-    
-    // Smooth scrolling for anchor links
-    const smoothScroll = () => {
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const targetId = this.getAttribute('href');
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', function() {
+            this.classList.toggle('active');
+            
+            // Create mobile menu if it doesn't exist
+            if (!document.querySelector('.mobile-menu')) {
+                const mobileMenu = document.createElement('div');
+                mobileMenu.className = 'mobile-menu';
                 
-                // Don't scroll for # links
-                if (targetId === '#') return;
+                // Create nav links for mobile
+                const navLinksClone = document.querySelector('.nav-links').cloneNode(true);
+                const navButtonsClone = document.querySelector('.nav-buttons').cloneNode(true);
                 
-                const targetElement = document.querySelector(targetId);
+                mobileMenu.appendChild(navLinksClone);
+                mobileMenu.appendChild(navButtonsClone);
                 
-                if (targetElement) {
-                    e.preventDefault();
-                    
-                    // Smooth scroll to element
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                // Insert after header
+                const header = document.querySelector('header');
+                header.parentNode.insertBefore(mobileMenu, header.nextSibling);
+            }
+            
+            // Toggle mobile menu visibility
+            const mobileMenu = document.querySelector('.mobile-menu');
+            if (mobileMenu) {
+                if (this.classList.contains('active')) {
+                    mobileMenu.style.display = 'block';
+                    setTimeout(() => {
+                        mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+                        mobileMenu.style.opacity = '1';
+                    }, 10);
+                } else {
+                    mobileMenu.style.maxHeight = '0';
+                    mobileMenu.style.opacity = '0';
+                    setTimeout(() => {
+                        mobileMenu.style.display = 'none';
+                    }, 300);
+                }
+            }
+        });
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            if (this.getAttribute('href') !== '#') {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
                     });
                     
                     // Close mobile menu if open
-                    const navLinks = document.querySelector('.nav-links');
-                    const mobileBtn = document.querySelector('.mobile-menu-btn');
-                    
-                    if (navLinks && navLinks.classList.contains('active')) {
-                        navLinks.classList.remove('active');
-                        if (mobileBtn) {
-                            mobileBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                        }
+                    const mobileMenu = document.querySelector('.mobile-menu');
+                    if (mobileMenu && mobileMenu.style.display === 'block') {
+                        document.querySelector('.mobile-menu-btn').click();
                     }
                 }
-            });
+            }
         });
-    };
-    
-    // Initialize smooth scrolling
-    smoothScroll();
-    
-    // Form validation and handling
-    const setupForms = () => {
-        // Login form validation
-        const loginForm = document.querySelector('.login-form');
-        if (loginForm) {
-            loginForm.addEventListener('submit', function(e) {
-                e.preventDefault();
+    });
+
+    // Articles Tab Functionality
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const articleCards = document.querySelectorAll('.article-card');
+
+    if (tabBtns.length > 0 && articleCards.length > 0) {
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                tabBtns.forEach(b => b.classList.remove('active'));
                 
-                let isValid = true;
-                const inputs = this.querySelectorAll('input');
+                // Add active class to clicked button
+                btn.classList.add('active');
                 
-                // Check all required fields
-                inputs.forEach(input => {
-                    if (!input.value.trim()) {
-                        isValid = false;
-                        input.classList.add('error');
-                        
-                        // Add error message
-                        const errorMessage = input.nextElementSibling;
-                        if (!errorMessage || !errorMessage.classList.contains('error-message')) {
-                            const message = document.createElement('div');
-                            message.className = 'error-message';
-                            message.textContent = 'This field is required';
-                            input.parentNode.insertBefore(message, input.nextElementSibling);
-                        }
+                // Filter articles
+                const category = btn.dataset.category;
+                
+                articleCards.forEach(card => {
+                    if (category === 'all') {
+                        card.style.display = 'block';
                     } else {
-                        input.classList.remove('error');
-                        
-                        // Remove error message if exists
-                        const errorMessage = input.nextElementSibling;
-                        if (errorMessage && errorMessage.classList.contains('error-message')) {
-                            errorMessage.remove();
+                        if (card.dataset.category === category) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
                         }
                     }
                 });
-                
-                if (isValid) {
-                    // Form is valid - you would normally send to server
-                    alert('Login successful!');
-                    
-                    // Reset form
-                    this.reset();
-                }
             });
-            
-            // Real-time validation
-            loginForm.querySelectorAll('input').forEach(input => {
-                input.addEventListener('blur', function() {
-                    if (!this.value.trim()) {
-                        this.classList.add('error');
-                        
-                        // Add error message if not exists
-                        const errorMessage = this.nextElementSibling;
-                        if (!errorMessage || !errorMessage.classList.contains('error-message')) {
-                            const message = document.createElement('div');
-                            message.className = 'error-message';
-                            message.textContent = 'This field is required';
-                            this.parentNode.insertBefore(message, this.nextElementSibling);
-                        }
-                    } else {
-                        this.classList.remove('error');
-                        
-                        // Remove error message if exists
-                        const errorMessage = this.nextElementSibling;
-                        if (errorMessage && errorMessage.classList.contains('error-message')) {
-                            errorMessage.remove();
-                        }
-                    }
+        });
+    }
+
+    // Testimonial slider
+    const testimonialsSlider = document.querySelector('.testimonials-slider');
+    const testimonialCards = document.querySelectorAll('.testimonial-card');
+    const dots = document.querySelectorAll('.dot');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    
+    if (testimonialsSlider && testimonialCards.length > 0) {
+        let currentIndex = 0;
+        const totalSlides = Math.ceil(testimonialCards.length / 3);
+        
+        // Initialize dots
+        updateDots(0);
+        
+        // Previous button click
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                updateSlider();
+            });
+        }
+        
+        // Next button click
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                updateSlider();
+            });
+        }
+        
+        // Dot click
+        if (dots && dots.length > 0) {
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateSlider();
                 });
             });
         }
-    };
-    
-    // Initialize forms
-    setupForms();
-    
+        
+        function updateSlider() {
+            const offset = currentIndex * -100;
+            testimonialsSlider.style.transform = `translateX(${offset}%)`;
+            updateDots(currentIndex);
+        }
+        
+        function updateDots(index) {
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+    }
+
     // Chatbot input functionality
-    const setupChatbot = () => {
-        const chatbotInput = document.querySelector('.chatbot-input input');
-        const chatNowBtn = document.querySelector('.action-buttons .btn-primary');
+    const chatbotInput = document.querySelector('.chatbot-input input');
+    const chatButton = document.querySelector('.action-buttons .btn-primary');
+    
+    if (chatbotInput && chatButton) {
+        chatButton.addEventListener('click', function() {
+            handleChatSubmit();
+        });
         
-        if (chatbotInput && chatNowBtn) {
-            // Submit on button click
-            chatNowBtn.addEventListener('click', function() {
+        chatbotInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
                 handleChatSubmit();
-            });
-            
-            // Submit on Enter key
-            chatbotInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    handleChatSubmit();
-                }
-            });
-            
-            // Handle chat submission
-            function handleChatSubmit() {
-                const query = chatbotInput.value.trim();
-                
-                if (query) {
-                    // Here you would connect to your chatbot backend
-                    // For now, show a demo response
-                    alert(`Your legal query has been submitted: "${query}"`);
-                    
-                    // Clear input after submission
-                    chatbotInput.value = '';
-                } else {
-                    // Empty query validation
-                    alert('Please enter your legal concern first.');
-                    chatbotInput.focus();
-                }
-            }
-        }
-    };
-    
-    // Initialize chatbot
-    setupChatbot();
-    
-    // Scroll animations for elements
-    const setupScrollAnimations = () => {
-        const animateElements = document.querySelectorAll(
-            '.value-card, .service-card, .testimonial-card, .welcome-image, .lawyer-image'
-        );
-        
-        // Initial check for elements in viewport
-        checkElementsInView();
-        
-        // Check elements on scroll
-        window.addEventListener('scroll', checkElementsInView);
-        
-        function checkElementsInView() {
-            const windowHeight = window.innerHeight;
-            const scrollY = window.scrollY;
-            
-            animateElements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top + scrollY;
-                const elementHeight = element.offsetHeight;
-                
-                // Element is in viewport
-                if (scrollY > elementPosition - windowHeight + elementHeight / 4) {
-                    element.classList.add('animated');
-                }
-            });
-        }
-    };
-    
-    // Initialize scroll animations
-    setupScrollAnimations();
-    
-    // Image optimization
-    const optimizeImages = () => {
-        const images = document.querySelectorAll('img');
-        
-        images.forEach(img => {
-            // Add loading="lazy" for better performance
-            img.setAttribute('loading', 'lazy');
-            
-            // Add onerror handler for image fallbacks
-            img.onerror = function() {
-                console.error('Image failed to load:', this.src);
-                // You could set a fallback image here if needed
-            };
-            
-            // Ensure all images have alt text for accessibility
-            if (!img.alt) {
-                const imgPath = img.src.split('/').pop();
-                img.alt = imgPath.split('.')[0] || 'Vakalat legal services';
             }
         });
-    };
-    
-    // Initialize image optimization
-    optimizeImages();
-    
-    // Responsive navigation highlighting
-    const highlightCurrentSection = () => {
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('.nav-links a');
         
-        // Initial check on page load
-        updateActiveLink();
-        
-        // Update on scroll
-        window.addEventListener('scroll', updateActiveLink);
-        
-        function updateActiveLink() {
-            const scrollPosition = window.scrollY + 200; // Offset for better UX
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.offsetHeight;
-                const sectionId = section.getAttribute('id');
-                
-                if (scrollPosition >= sectionTop && 
-                    scrollPosition < sectionTop + sectionHeight) {
-                    
-                    // Remove active class from all links
-                    navLinks.forEach(link => {
-                        link.classList.remove('active');
-                    });
-                    
-                    // Add active class to current section link
-                    const activeLink = document.querySelector(`.nav-links a[href="#${sectionId}"]`);
-                    if (activeLink) {
-                        activeLink.classList.add('active');
-                    }
-                }
-            });
+        function handleChatSubmit() {
+            const message = chatbotInput.value.trim();
+            if (message) {
+                alert('Your message has been submitted: ' + message);
+                chatbotInput.value = '';
+            } else {
+                chatbotInput.placeholder = 'Please enter your message...';
+                chatbotInput.focus();
+            }
         }
-    };
+    }
+});
+// Enhanced hero section animations
+function initHeroEffects() {
+    // Parallax effect for floating particles
+    window.addEventListener('mousemove', function(e) {
+        const particles = document.querySelectorAll('.floating-particle');
+        const moveX = (e.clientX - window.innerWidth / 2) / 50;
+        const moveY = (e.clientY - window.innerHeight / 2) / 50;
+        
+        particles.forEach(function(particle, index) {
+            // Create different movement amounts for each particle
+            const factor = (index + 1) * 0.2;
+            particle.style.transform = `translate(${moveX * factor}px, ${moveY * factor}px)`;
+        });
+    });
     
-    // Initialize navigation highlighting if sections have IDs
-    if (document.querySelector('section[id]')) {
-        highlightCurrentSection();
+    // Header transparency effect
+    const header = document.querySelector('header');
+    const heroTitle = document.querySelector('.hero-title');
+    
+    if (header && heroTitle) {
+        const titlePosition = heroTitle.getBoundingClientRect().bottom;
+        
+        window.addEventListener('scroll', function() {
+            // Make header more transparent at top, more solid as you scroll
+            if (window.scrollY < 50) {
+                header.classList.add('transparent-header');
+            } else {
+                header.classList.remove('transparent-header');
+            }
+            
+            // Ensure header doesn't overlap with title
+            if (window.scrollY > titlePosition - 100) {
+                header.style.backgroundColor = 'rgba(44, 62, 80, 0.95)';
+            }
+        });
     }
     
-    // Ensure proper styling after images load
-    window.addEventListener('load', function() {
-        // Re-trigger scroll animations
-        window.dispatchEvent(new Event('scroll'));
-    });
+    // Image reveal animation
+    const heroImage = document.querySelector('.hero-image img');
+    if (heroImage) {
+        heroImage.style.opacity = '0';
+        heroImage.style.transform = 'scale(0.9) translateY(30px)';
+        
+        setTimeout(() => {
+            heroImage.style.transition = 'all 1.2s cubic-bezier(0.23, 1, 0.32, 1)';
+            heroImage.style.opacity = '1';
+            heroImage.style.transform = 'scale(1.05) translateY(0)';
+        }, 300);
+    }
+}
+
+// Initialize effects after DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // ... (existing code)
+    
+    // Initialize hero effects
+    initHeroEffects();
 });
