@@ -3,226 +3,587 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">                                          
-    <title>VAKALAT - Legal Help, Simplified & Speedified</title>
-    <!-- Google Fonts - Libre Baskerville and Open Sans -->
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>VAKALAT - Premium Legal Services</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Header/Navigation -->
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">
-                    <a href="/">
-                        <img src="https://assets.onecompiler.app/43bwba7tk/43by3tjr7/logo%20black%20(6).jpeg" alt="VAKALAT Logo">
-                    </a>
-                </div>
-         <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
-<script src="https://files.bpcontent.cloud/2025/03/26/13/20250326132441-3L5102K6.js"></script>
-                <div class="nav-links">
-                    <a href="#" class="active">Home</a>
-                    <a href="#">Profile</a>
-                    <a href="#">Documentation</a>
-                </div>
-                <div class="nav-buttons">
-                    <a href="#" class="btn btn-primary">Login</a>
-                    <a href="#" class="btn btn-outline">My Cases</a>
-                    <a href="#" class="btn btn-outline">Language</a>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">Legal Help, <br>Simplified & <br><span>Speedified!</span></h1>
-                <p class="hero-subtitle">Empowering you with instant legal support—because your rights can't wait!</p>
-                
-                <div class="chatbot-container">
-                    <p class="chatbot-label"><i class="fas fa-robot"></i> Your Personal AI Chatbot INSAFF</p>
-                    <div class="chatbot-input">
-                        <input type="text" placeholder="Type your concern, get instant legal clarity!">
-                    </div>
-                    <div class="action-buttons">
-                        <button class="btn btn-primary">Chat instantly</button>
-                        <button class="btn btn-outline-light">View your projects</button>
-                    </div>
-                </div>
+<header class="transparent-header">
+    <div class="container">
+        <nav>
+            <div class="logo">
+                <a href="/">
+                    <img src="https://assets.onecompiler.app/43bwba7tk/43by3tjr7/logo%20black%20(6).jpeg" alt="VAKALAT Logo">
+                </a>
             </div>
-            <div class="hero-image">
-                <img src="https://i.pinimg.com/736x/37/f9/b3/37f9b34df51657fac1102788f8ab5e83.jpg" alt="Lady Justice">
-            </div>
-        </div>
-    </section>
-
-    <!-- Welcome Section (Login) -->
-    <section class="welcome-section">
-        <div class="container">
-            <div class="welcome-content">
-                <h2>Welcome to VAKALAT</h2>
-                <form class="login-form">
-                    <input type="text" placeholder="Username / Email address">
-                    <input type="password" placeholder="Password">
-                    <button type="submit" class="btn btn-primary">Sign in</button>
-                    <div class="form-links">
-                        <a href="#">Don't have an account?</a>
-                        <a href="#">Forgot your password?</a>
-                    </div>
-                </form>
-            </div>
-            <div class="welcome-image">
-                <img src="https://opiniojuris.org/wp-content/uploads/Justice_GettyImages-1140705087.jpg" alt="Justice scales">
-            </div>
-        </div>
-    </section>
-
-    <!-- Value Propositions -->
-    <section class="value-props">
-        <div class="container">
-            <h2 class="section-title">Reliable. Fast Judicial Value Proposition.</h2>
-            <p class="section-subtitle">When it comes to legal matters, trust and reliability are everything. At VAKALAT, we ensure that you get accurate expert-backed and instant legal assistance - anytime, anywhere.</p>
             
-            <div class="value-grid">
-                <div class="value-card">
-                    <i class="fas fa-hand-holding-usd fa-3x value-icon"></i>
-                    <h3>Affordable & Accessible</h3>
+            <div class="nav-links">
+                <a href="#" class="active">Home</a>
+                <a href="#features">Features</a>
+                <a href="#services">Services</a>
+                <a href="#latest-news">News</a>
+                <a href="#articles">Articles</a>
+                <a href="#testimonials">Testimonials</a>
+            </div>
+            
+            <div class="nav-buttons">
+                <a href="#" class="btn btn-primary">Login</a>
+                <a href="#for-lawyers" class="btn btn-outline">For Lawyers</a>
+            </div>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-bg-effects">
+        <div class="floating-particle particle-1"></div>
+        <div class="floating-particle particle-2"></div>
+        <div class="floating-particle particle-3"></div>
+        <div class="floating-particle particle-4"></div>
+        <div class="floating-particle particle-5"></div>
+        <div class="light-beam"></div>
+    </div>
+    <div class="hero-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+    <div class="container">
+        <div class="hero-content" data-aos="fade-right" data-aos-duration="1000">
+            <h1 class="hero-title">Legal Help, <br><span>Simplified & </span><br>Speedified!</h1>
+            <p class="hero-subtitle">Empowering you with instant legal support—because your rights can't wait!</p>
+            
+            <div class="chatbot-container">
+                <p class="chatbot-label"><i class="fas fa-robot"></i> Your Personal AI Chatbot INSAFF</p>
+                <div class="chatbot-input">
+                    <input type="text" placeholder="Type your concern, get instant legal clarity!">
                 </div>
-                <div class="value-card">
-                    <i class="fas fa-bolt fa-3x value-icon"></i>
-                    <h3>Instant & Reliable Help</h3>
+                <div class="action-buttons">
+                    <button class="btn btn-primary">Chat instantly</button>
+                    <button class="btn btn-outline-light">View your projects</button>
                 </div>
-                <div class="value-card">
-                    <i class="fas fa-shield-alt fa-3x value-icon"></i>
+            </div>
+        </div>
+        <div class="hero-image" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
+            <div class="image-glow"></div>
+            <img src="https://i.pinimg.com/736x/37/f9/b3/37f9b34df51657fac1102788f8ab5e83.jpg" alt="Lady Justice">
+        </div>
+    </div>
+</section>
+
+   
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="section-decorator">
+            <div class="decorator-shape"></div>
+        </div>
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Why Choose Vakalat</h2>
+                <p class="section-subtitle">Our platform redefines the legal experience with innovative features designed for today's world.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Instant Access</h3>
+                    <p>Connect with qualified legal professionals within minutes, not days. Your legal concerns deserve immediate attention.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
                     <h3>Secure & Confidential</h3>
+                    <p>Bank-level encryption and strict privacy protocols ensure your sensitive information remains protected at all times.</p>
                 </div>
-                <div class="value-card">
-                    <i class="fas fa-check-circle fa-3x value-icon"></i>
-                    <h3>Verified Legal Experts</h3>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Verified Experts</h3>
+                    <p>Our rigorous vetting process ensures you're connected only with qualified, experienced legal professionals.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3>Transparent Pricing</h3>
+                    <p>Clear, upfront pricing with no hidden fees. Know exactly what you're paying for before committing.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI-Powered Insights</h3>
+                    <p>Our INSAFF AI assistant provides preliminary guidance, helping you understand your legal situation instantly.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Seamless Experience</h3>
+                    <p>Access legal help from any device, anytime, with our intuitive interface designed for modern users.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services">
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
         <div class="container">
-            <h2 class="section-title">Our Services: Fast, Reliable, & Expert Legal Assistance</h2>
-            <p class="section-description section-subtitle">At VAKALAT, we provide instant, professional, and holistic legal solutions tailored to your needs. Whether you're facing a legal issue, need a quick opinion, or require expert consultation, our platform is here to guide and assist.</p>
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">How Vakalat Works</h2>
+                <p class="section-subtitle">A simple, streamlined process designed to get you the legal help you need with minimal friction.</p>
+            </div>
+            
+            <div class="steps-container">
+                <div class="step-line"></div>
+                <div class="step" data-aos="fade-right">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Describe Your Situation</h3>
+                        <p>Share your legal concern or question through our intuitive interface. Our AI assistant helps categorize your issue.</p>
+                    </div>
+                </div>
+                <div class="step" data-aos="fade-left">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Get Matched</h3>
+                        <p>Our system connects you with legal professionals specialized in your specific area of need within minutes.</p>
+                    </div>
+                </div>
+                <div class="step" data-aos="fade-right">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Consult & Resolve</h3>
+                        <p>Communicate directly with your legal expert through secure messaging, voice, or video calls to address your concerns.</p>
+                    </div>
+                </div>
+                <div class="step" data-aos="fade-left">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Track Progress</h3>
+                        <p>Monitor your case development through our intuitive dashboard with complete transparency at every stage.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="section-decorator right">
+            <div class="decorator-shape"></div>
+        </div>
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Our Services</h2>
+                <p class="section-subtitle">Comprehensive legal solutions tailored to your specific needs.</p>
+            </div>
             
             <div class="services-grid">
-                <div class="service-card">
-                    <i class="fas fa-comments fa-3x service-icon"></i>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
                     <h3>Legal Consultation</h3>
+                    <p>Get expert advice on your legal matters from experienced professionals who understand your specific situation.</p>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div class="service-card">
-                    <i class="fas fa-gavel fa-3x service-icon"></i>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
                     <h3>Lawyer On-Demand</h3>
+                    <p>Connect with a qualified lawyer instantly for immediate assistance with urgent legal matters.</p>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div class="service-card">
-                    <i class="fas fa-balance-scale fa-3x service-icon"></i>
-                    <h3>Mediation and arbitration</h3>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Mediation Services</h3>
+                    <p>Resolve disputes efficiently through our professional mediation services without lengthy court procedures.</p>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div class="service-card">
-                    <i class="fas fa-book fa-3x service-icon"></i>
-                    <h3>Case Testimonial and study</h3>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3>Document Review</h3>
+                    <p>Have legal experts review your contracts and documents to ensure your interests are protected.</p>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Lawyer Join Section -->
-    <section class="lawyer-join">
+    <!-- Latest News Section -->
+    <section id="latest-news" class="news-section">
         <div class="container">
-            <div class="join-content">
-                <h2>Are you a Lawyer?<br>Join our Court house of Lawyers</h2>
-                
-                <div class="benefits-grid">
-                    <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i>
-                        <p>Engage with clients the first time, every time with unprecedented success rates</p>
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Latest Legal News</h2>
+                <p class="section-subtitle">Stay informed with the latest developments in the legal landscape.</p>
+            </div>
+            
+            <div class="news-grid">
+                <div class="news-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1589994965851-a8f479c573a9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Supreme Court Building">
+                        <div class="news-date">
+                            <span class="day">12</span>
+                            <span class="month">MAR</span>
+                        </div>
                     </div>
-                    <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i>
-                        <p>Supported by a dedicated client management interface helping you save time</p>
-                    </div>
-                    <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i>
-                        <p>Earn in preferred business categories</p>
-                    </div>
-                    <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i>
-                        <p>Handle cases efficiently with our advanced file management and filing processes</p>
+                    <div class="news-content">
+                        <div class="news-category">Constitutional Law</div>
+                        <h3>Supreme Court Delivers Landmark Judgment on Privacy Rights</h3>
+                        <p>The Supreme Court has ruled that digital privacy is a fundamental right, setting a precedent for future cases concerning data protection.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 
-                <a href="#" class="join-btn">Sign Up Now</a>
+                <div class="news-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Legal documents">
+                        <div class="news-date">
+                            <span class="day">08</span>
+                            <span class="month">MAR</span>
+                        </div>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-category">Corporate Law</div>
+                        <h3>New Regulations for Tech Companies Set to Take Effect Next Month</h3>
+                        <p>The Ministry of Electronics and IT has announced new compliance requirements for technology companies operating in India.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="news-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1579451861283-a2239070aaa9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Lawyer in courtroom">
+                        <div class="news-date">
+                            <span class="day">03</span>
+                            <span class="month">MAR</span>
+                        </div>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-category">Legal Practice</div>
+                        <h3>Bar Council Introduces New Framework for Virtual Court Proceedings</h3>
+                        <p>The Bar Council of India has released comprehensive guidelines for conducting legal proceedings through virtual platforms.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
             </div>
-            <div class="lawyer-image">
-                <img src="https://static.vecteezy.com/system/resources/previews/007/359/456/non_2x/serious-female-asian-lawyer-with-smiling-sitting-at-workplace-and-looking-at-camera-free-photo.JPG" alt="Professional Lawyer">
+            
+            <div class="news-view-all" data-aos="fade-up">
+                <a href="#" class="btn btn-primary">View All News</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legal Articles Section -->
+    <section id="articles" class="articles-section">
+        <div class="section-decorator">
+            <div class="decorator-shape"></div>
+        </div>
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Legal Resources & Articles</h2>
+                <p class="section-subtitle">Explore our library of legal articles, guides, and resources to better understand your rights and options.</p>
+            </div>
+            
+            <div class="articles-tabs" data-aos="fade-up">
+                <button class="tab-btn active" data-category="all">All</button>
+                <button class="tab-btn" data-category="family">Family Law</button>
+                <button class="tab-btn" data-category="property">Property Law</button>
+                <button class="tab-btn" data-category="business">Business Law</button>
+                <button class="tab-btn" data-category="criminal">Criminal Law</button>
+            </div>
+            
+            <div class="articles-grid">
+                <div class="article-card" data-aos="fade-up" data-category="family">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1536640712-4d4c36ff0e4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Family at home">
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-category">Family Law</span>
+                            <span class="article-date">February 28, 2023</span>
+                        </div>
+                        <h3>Understanding Child Custody Laws: A Comprehensive Guide</h3>
+                        <p>This article outlines the various types of custody arrangements, factors courts consider when making custody decisions, and how to navigate the legal process.</p>
+                        <div class="article-footer">
+                            <a href="#" class="read-more-btn">Read Full Article</a>
+                            <div class="article-stats">
+                                <span><i class="far fa-eye"></i> 1.2K</span>
+                                <span><i class="far fa-comment"></i> 24</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="article-card" data-aos="fade-up" data-aos-delay="100" data-category="property">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Modern house">
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-category">Property Law</span>
+                            <span class="article-date">March 5, 2023</span>
+                        </div>
+                        <h3>Essential Legal Checks Before Purchasing Property</h3>
+                        <p>Learn about the critical legal verifications you should complete before finalizing any property purchase to avoid future disputes and complications.</p>
+                        <div class="article-footer">
+                            <a href="#" class="read-more-btn">Read Full Article</a>
+                            <div class="article-stats">
+                                <span><i class="far fa-eye"></i> 3.7K</span>
+                                <span><i class="far fa-comment"></i> 42</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="article-card" data-aos="fade-up" data-aos-delay="200" data-category="business">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Business meeting">
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-category">Business Law</span>
+                            <span class="article-date">March 10, 2023</span>
+                        </div>
+                        <h3>Legal Considerations When Starting a Business in 2023</h3>
+                        <p>This comprehensive guide covers the key legal aspects entrepreneurs should consider when launching a new business, including entity selection and compliance requirements.</p>
+                        <div class="article-footer">
+                            <a href="#" class="read-more-btn">Read Full Article</a>
+                            <div class="article-stats">
+                                <span><i class="far fa-eye"></i> 2.5K</span>
+                                <span><i class="far fa-comment"></i> 36</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="article-card" data-aos="fade-up" data-aos-delay="300" data-category="criminal">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1589994965851-a8f479c573a9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Courtroom">
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-category">Criminal Law</span>
+                            <span class="article-date">March 15, 2023</span>
+                        </div>
+                        <h3>Your Rights During Police Interrogation: What You Need to Know</h3>
+                        <p>Understanding your constitutional rights during police questioning can significantly impact the outcome of a criminal investigation. Here's what everyone should know.</p>
+                        <div class="article-footer">
+                            <a href="#" class="read-more-btn">Read Full Article</a>
+                            <div class="article-stats">
+                                <span><i class="far fa-eye"></i> 4.1K</span>
+                                <span><i class="far fa-comment"></i> 58</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="articles-view-all" data-aos="fade-up">
+                <a href="#" class="btn btn-primary">Browse All Articles</a>
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section class="testimonials">
+    <section id="testimonials" class="testimonials">
         <div class="container">
-            <h2 class="section-title">Your Voice Matters. Share Your Feedback!</h2>
-            <p class="section-subtitle">Our users value our Services. Here's what our users have to say about their experience with us.</p>
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Client Testimonials</h2>
+                <p class="section-subtitle">Hear from those who have experienced the Vakalat difference.</p>
+            </div>
             
-            <div class="testimonial-grid">
+            <div class="testimonials-slider" data-aos="fade-up" data-aos-delay="200">
                 <div class="testimonial-card">
-                    <h3 class="client-name">Ronak, Graphic ers university</h3>
-                    <p class="testimonial-text">As a first-year law student, I had to prepare for a mock trial. I had no idea how to start or what to say, though I knew the laws to apply. VAKALAT helped me frame the arguments coherently. Overall, it's a great resource for my legal learning.</p>
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Ronak S">
+                        </div>
+                        <div class="testimonial-meta">
+                            <h4 class="client-name">Ronak S.</h4>
+                            <p class="client-title">Law Student, Delhi</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"As a first-year law student, I needed guidance for a mock trial. Vakalat's AI assistant helped me structure my arguments perfectly. The platform is intuitive and incredibly valuable for legal education."</p>
                 </div>
+                
                 <div class="testimonial-card">
-                    <h3 class="client-name">Shreya, Tula's Institute</h3>
-                    <p class="testimonial-text">I had an issue with my landlord over returning my security deposit. VAKALAT helped me understand my rights, the necessary steps to take, and the documentation required. Their advice was clear and I resolved my issue without further disputes.</p>
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Shreya M">
+                        </div>
+                        <div class="testimonial-meta">
+                            <h4 class="client-name">Shreya M.</h4>
+                            <p class="client-title">Business Owner, Mumbai</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"I had a dispute with my landlord over security deposit. Vakalat connected me with a real estate lawyer within an hour. The advice was clear, actionable, and helped me resolve my issue without going to court."</p>
                 </div>
+                
                 <div class="testimonial-card">
-                    <h3 class="client-name">Jennifer</h3>
-                    <p class="testimonial-text">I had car repair issues with a local garage, and it was a huge hassle. I needed to understand my consumer rights. VAKALAT gave me precise guidance which helped me resolve it without going to court.</p>
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/42.jpg" alt="Jennifer K">
+                        </div>
+                        <div class="testimonial-meta">
+                            <h4 class="client-name">Jennifer K.</h4>
+                            <p class="client-title">HR Manager, Bangalore</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="testimonial-text">"Dealing with a consumer rights issue seemed overwhelming until I used Vakalat. Their platform gave me precise guidance on my rights and the next steps. Resolved my car repair dispute without court involvement."</p>
                 </div>
+            </div>
+            
+            <div class="testimonial-controls">
+                <button class="prev-btn"><i class="fas fa-arrow-left"></i></button>
+                <div class="testimonial-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+                <button class="next-btn"><i class="fas fa-arrow-right"></i></button>
             </div>
         </div>
     </section>
 
-    <!-- Footer/About Section -->
+    <!-- For Lawyers Section -->
+    <section id="for-lawyers" class="for-lawyers">
+        <div class="section-decorator right">
+            <div class="decorator-shape"></div>
+        </div>
+        <div class="container">
+            <div class="lawyers-content" data-aos="fade-right">
+                <div class="section-badge">For Legal Professionals</div>
+                <h2>Expand Your Practice,<br>Maximize Your Impact</h2>
+                <p>Join our network of elite legal professionals and transform how you serve clients in the digital age.</p>
+                
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Access a steady stream of pre-qualified clients in your specialty area</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Reduce administrative overhead with our client management tools</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Build your reputation with verified client reviews and ratings</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Flexible scheduling allows you to practice on your terms</p>
+                    </div>
+                </div>
+                
+                <a href="#" class="btn btn-primary">Join Lawyer Network</a>
+            </div>
+            <div class="lawyers-image" data-aos="fade-left" data-aos-delay="200">
+                <img src="https://static.vecteezy.com/system/resources/previews/007/359/456/non_2x/serious-female-asian-lawyer-with-smiling-sitting-at-workplace-and-looking-at-camera-free-photo.JPG" alt="Professional Lawyer">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-links">
-                    <h3>Legal Links</h3>
-                    <ul>
-                        <li><a href="#">Terms of Use</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Cookie Policy</a></li>
-                        <li><a href="#">Copyright Policy</a></li>
-                        <li><a href="#">Trademark Policy</a></li>
-                        <li><a href="#">Knowledge Base</a></li>
-                    </ul>
-                </div>
-                <div class="contact-info">
-                    <h3>Reach Us</h3>
-                    <p><i class="fas fa-envelope"></i> info@vakalatonline.com</p>
-                    <p><i class="fas fa-phone"></i> +91 9999999999</p>
-                    <p><i class="fas fa-fax"></i> 00000000000</p>
-                </div>
+            <div class="footer-top">
                 <div class="footer-logo">
                     <img src="https://assets.onecompiler.app/43bwba7tk/43by3tjr7/logo%20black%20(6).jpeg" alt="VAKALAT Logo">
-                    <div class="ready-started">
-                        <p>Ready to get started?</p>
-                        <a href="#" class="btn">GET STARTED</a>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Platform</h3>
+                        <ul>
+                            <li><a href="#">How It Works</a></li>
+                            <li><a href="#">Features</a></li>
+                            <li><a href="#">For Lawyers</a></li>
+                            <li><a href="#">Pricing</a></li>
+                            <li><a href="#">FAQ</a></li>
+                        </ul>
                     </div>
+                    <div class="footer-column">
+                        <h3>Legal</h3>
+                        <ul>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Cookie Policy</a></li>
+                            <li><a href="#">Disclaimer</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Contact</h3>
+                        <ul>
+                            <li><a href="mailto:info@vakalat.com"><i class="fas fa-envelope"></i> info@vakalat.com</a></li>
+                            <li><a href="tel:+919999999999"><i class="fas fa-phone"></i> +91 9999 999 999</a></li>
+                            <li><address><i class="fas fa-map-marker-alt"></i> 123 Legal Tower, Tech Park, Bangalore 560001</address></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2023 Vakalat. All rights reserved.</p>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
