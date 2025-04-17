@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vakalat - Client Profile</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="assets/logo.png" alt="Vakalat Logo">
+            <h3>Vakalat</h3>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="index.html" data-section="dashboard"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li class="has-submenu">
+                    <a href="#" data-section="cases"><i class="fas fa-briefcase"></i> Cases <i class="fas fa-chevron-down"></i></a>
+                    <ul class="submenu">
+                        <li><a href="case-details.html">View Case Details</a></li>
+                        <li><a href="add-case.html">Add New Case</a></li>
+                    </ul>
+                </li>
+                <li class="has-submenu active">
+                    <a href="#" data-section="clients" class="active"><i class="fas fa-users"></i> Clients <i class="fas fa-chevron-down"></i></a>
+                    <ul class="submenu" style="display: block;">
+                        <li><a href="client-profile.html" class="active">View Client Profile</a></li>
+                        <li><a href="add-client.html">Add New Client</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#calendar" data-section="calendar"><i class="fas fa-calendar-alt"></i> Calendar</a></li>
+                <li><a href="index.html#tasks" data-section="tasks"><i class="fas fa-tasks"></i> Tasks</a></li>
+                <li><a href="index.html#billing" data-section="billing"><i class="fas fa-file-invoice"></i> Billing</a></li>
+                <li><a href="index.html#reports" data-section="reports"><i class="fas fa-chart-bar"></i> Reports</a></li>
+                <li><a href="index.html#messages" data-section="messages"><i class="fas fa-envelope"></i> Messages</a></li>
+                <li><a href="index.html#profile" data-section="profile"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="#" id="theme-toggle"><i class="fas fa-moon"></i> Dark Mode</a></li>
+                <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="dashboard-header">
+            <div class="header-left">
+                <button class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <h2>Welcome, Adv. [Lawyer Name]</h2>
+            </div>
+            <div class="header-right">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search cases, clients...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge">3</span>
+                </div>
+                <div class="user-profile">
+                    <img src="assets/user-avatar.png" alt="User Avatar">
+                </div>
+            </div>
+        </header>
+        <section class="content-section active">
+            <div class="container">
+                <div class="client-header">
+                    <h2 class="section-title">Client Profile: Mr. Anil Kumar</h2>
+                    <button class="btn btn-primary" onclick="openModal('editClient')">Edit Profile</button>
+                </div>
+                <div class="client-details">
+                    <div class="client-info">
+                        <h3>Client Information</h3>
+                        <p><strong>Name:</strong> Mr. Anil Kumar</p>
+                        <p><strong>Contact:</strong> +91 98765 43210</p>
+                        <p><strong>Email:</strong> anil.kumar@example.com</p>
+                        <p><strong>Address:</strong> 123, Delhi, India</p>
+                        <p><strong>Occupation:</strong> Business Owner</p>
+                    </div>
+                    <div class="client-cases">
+                        <h3>Active Cases</h3>
+                        <ul>
+                            <li><a href="case-details.html">Case #1234: IPC 302</a></li>
+                            <li>Case #5678: Civil Dispute</li>
+                        </ul>
+                    </div>
+                    <div class="client-communication">
+                        <h3>Communication History</h3>
+                        <ul>
+                            <li>15 Apr 2025: Sent case update email</li>
+                            <li>10 Apr 2025: Phone call regarding hearing</li>
+                            <li>5 Apr 2025: In-person meeting</li>
+                        </ul>
+                        <textarea placeholderව</textarea>
+                        <button class="btn btn-primary">Add Note</button>
+                    </div>
+                    <div class="client-documents">
+                        <h3>Documents</h3>
+                        <input type="file" id="document-upload">
+                        <ul>
+                            <li>Client_Agreement.pdf <a href="#">Download</a> | <a href="#">Delete</a></li>
+                            <li>ID_Proof.jpg <a href="#">Download</a> | <a href="#">Delete</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

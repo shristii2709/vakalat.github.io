@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vakalat - Lawyer Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="assets/logo.png" alt="Vakalat Logo">
+            <h3>Vakalat</h3>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="#" class="active" data-section="dashboard"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li class="has-submenu">
+                    <a href="#" data-section="cases"><i class="fas fa-briefcase"></i> Cases <i class="fas fa-chevron-down"></i></a>
+                    <ul class="submenu">
+                        <li><a href="case-details.html">View Case Details</a></li>
+                        <li><a href="add-case.html">Add New Case</a></li>
+                    </ul>
+                </li>
+                <li class="has-submenu">
+                    <a href="#" data-section="clients"><i class="fas fa-users"></i> Clients <i class="fas fa-chevron-down"></i></a>
+                    <ul class="submenu">
+                        <li><a href="client-profile.html">View Client Profile</a></li>
+                        <li><a href="add-client.html">Add New Client</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" data-section="calendar"><i class="fas fa-calendar-alt"></i> Calendar</a></li>
+                <li><a href="#" data-section="tasks"><i class="fas fa-tasks"></i> Tasks</a></li>
+                <li><a href="#" data-section="billing"><i class="fas fa-file-invoice"></i> Billing</a></li>
+                <li><a href="#" data-section="reports"><i class="fas fa-chart-bar"></i> Reports</a></li>
+                <li><a href="#" data-section="messages"><i class="fas fa-envelope"></i> Messages</a></li>
+                <li><a href="#" data-section="profile"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="#" id="theme-toggle"><i class="fas fa-moon"></i> Dark Mode</a></li>
+                <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-left">
+                <button class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <h2>Welcome, Adv. [Lawyer Name]</h2>
+            </div>
+            <div class="header-right">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search cases, clients...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge">3</span>
+                </div>
+                <div class="user-profile">
+                    <img src="assets/user-avatar.png" alt="User Avatar">
+                </div>
+            </div>
+        </header>
+
+        <!-- Notifications Panel -->
+        <div class="notifications-panel">
+            <h3>Notifications</h3>
+            <ul>
+                <li>Hearing for Case #1234 tomorrow at 10 AM</li>
+                <li>New message from Mr. Anil Kumar</li>
+                <li>Task due: Draft petition by EOD</li>
+            </ul>
+        </div>
+
+        <!-- Quick Actions Bar -->
+        <div class="quick-actions">
+            <button class="btn btn-primary" onclick="openModal('addCase')"><i class="fas fa-plus"></i> Add Case</button>
+            <button class="btn btn-primary" onclick="openModal('addClient')"><i class="fas fa-user-plus"></i> Add Client</button>
+            <button class="btn btn-primary" onclick="openModal('addTask')"><i class="fas fa-tasks"></i> Add Task</button>
+        </div>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="content-section active">
+            <div class="container">
+                <h2 class="section-title">Dashboard Overview</h2>
+                <div class="dashboard-stats">
+                    <div class="stat-card animate__fadeIn">
+                        <i class="fas fa-briefcase"></i>
+                        <h3>Pending Cases</h3>
+                        <p>24</p>
+                    </div>
+                    <div class="stat-card animate__fadeIn" style="animation-delay: 0.2s;">
+                        <i class="fas fa-calendar-check"></i>
+                        <h3>Upcoming Hearings</h3>
+                        <p>8</p>
+                    </div>
+                    <div class="stat-card animate__fadeIn" style="animation-delay: 0.4s;">
+                        <i class="fas fa-tasks"></i>
+                        <h3>Tasks Due</h3>
+                        <p>12</p>
+                    </div>
+                    <div class="stat-card animate__fadeIn" style="animation-delay: 0.6s;">
+                        <i class="fas fa-rupee-sign"></i>
+                        <h3>Pending Invoices</h3>
+                        <p>₹45,000</p>
+                    </div>
+                </div>
+                <div class="recent-activity">
+                    <h3>Recent Activity</h3>
+                    <ul>
+                        <li>Case #1234: Hearing scheduled for 25 Apr 2025</li>
+                        <li>Client Meeting: Mr. Sharma, 20 Apr 2025</li>
+                        <li>Task Completed: Draft petition for Case #5678</li>
+                    </ul>
+                </div>
+                <div class="analytics">
+                    <h3>Case Analytics</h3>
+                    <div class="chart-placeholder" style="width: 300px; height: 300px;">
+                        <canvas id="caseChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other Sections -->
+        <section id="cases" class="content-section">
+            <div class="container">
+                <h2 class="section-title">Case Management</h2>
+                <div class="filters">
+                    <select>
+                        <option>All Cases</option>
+                        <option>Pending</option>
+                        <option>Closed</option>
+                    </select>
+                    <input type="text" placeholder="Search by case number or client">
+                </div>
+                <div class="case-list">
+                    <div class="case-card animate__fadeIn">
+                        <h3>Case #1234: IPC 302</h3>
+                        <p>Client: Mr. Anil Kumar</p>
+                        <p>Court: Delhi High Court</p>
+                        <p>Next Hearing: 25 Apr 2025</p>
+                        <div class="case-progress">
+                            <span>Progress: 60%</span>
+                            <div class="progress-bar"><div style="width: 60%;"></div></div>
+                        </div>
+                        <a href="case-details.html" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="clients" class="content-section">
+            <div class="container">
+                <h2 class="section-title">Client Management</h2>
+                <div class="client-list">
+                    <div class="client-card animate__fadeIn">
+                        <h3>Mr. Anil Kumar</h3>
+                        <p>Contact: +91 98765 43210</p>
+                        <p>Email: anil.kumar@example.com</p>
+                        <p>Active Cases: 2</p>
+                        <a href="client-profile.html" class="btn btn-primary">View Profile</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="calendar" class="content-section">
+            <div class="container">
+                <h2 class="section-title">Calendar</h2>
+                <div class="calendar-placeholder">
+                    <p>Calendar integration placeholder</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="tasks" class="content-section">
+            <div class="container">
+                <h2 class="section-title">Tasks</h2>
+                <div class="task-list">
+                    <div class="task-card animate__fadeIn">
+                        <h3>Draft Petition</h3>
+                        <p>Case: #1234</p>
+                        <p>Due: 17 Apr 2025</p>
+                        <p>Status: Pending</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="billing" class="content-section">
+            <div class="container">
+                <h2 class="section-title">Billing</h2>
+                <div class="billing-list">
+                    <div class="billing-card animate__fadeIn">
+                        <h3>Invoice #INV001</h3>
+                        <p>Client: Mr. Anil Kumar</p>
+                        <p>Amount: ₹15,000</p>
+                        <p>Status: Pending</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="reports" class="content-section">
+            <div class="container">
+                <h2 class="section-title">Reports</h2>
+                <div class="report-placeholder">
+                    <p>Reporting tools placeholder</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="messages" class="content-section">
+            <div class="container">
+                <h2 class="section-title">Messages</h2>
+                <div class="message-list">
+                    <div class="message-card animate__fadeIn">
+                        <h3>Mr. Anil Kumar</h3>
+                        <p>Subject: Case Update</p>
+                        <p>Date: 15 Apr 2025</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="profile" class="content-section">
+            <div class="container">
+                <h2 class="section-title">Profile</h2>
+                <div class="profile-details">
+                    <h3>Adv. [Lawyer Name]</h3>
+                    <p>Email: lawyer@example.com</p>
+                    <p>Contact: +91 12345 67890</p>
+                    <p>Bar Council: [Bar Council Details]</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal for Quick Actions -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Add New</h3>
+            <form id="modal-form">
+                <input type="text" placeholder="Enter details" required>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

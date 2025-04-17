@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vakalat - Case Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="assets/logo.png" alt="Vakalat Logo">
+            <h3>Vakalat</h3>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="index.html" data-section="dashboard"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li class="has-submenu active">
+                    <a href="#" data-section="cases" class="active"><i class="fas fa-briefcase"></i> Cases <i class="fas fa-chevron-down"></i></a>
+                    <ul class="submenu" style="display: block;">
+                        <li><a href="case-details.html" class="active">View Case Details</a></li>
+                        <li><a href="add-case.html">Add New Case</a></li>
+                    </ul>
+                </li>
+                <li class="has-submenu">
+                    <a href="#" data-section="clients"><i class="fas fa-users"></i> Clients <i class="fas fa-chevron-down"></i></a>
+                    <ul class="submenu">
+                        <li><a href="client-profile.html">View Client Profile</a></li>
+                        <li><a href="add-client.html">Add New Client</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#calendar" data-section="calendar"><i class="fas fa-calendar-alt"></i> Calendar</a></li>
+                <li><a href="index.html#tasks" data-section="tasks"><i class="fas fa-tasks"></i> Tasks</a></li>
+                <li><a href="index.html#billing" data-section="billing"><i class="fas fa-file-invoice"></i> Billing</a></li>
+                <li><a href="index.html#reports" data-section="reports"><i class="fas fa-chart-bar"></i> Reports</a></li>
+                <li><a href="index.html#messages" data-section="messages"><i class="fas fa-envelope"></i> Messages</a></li>
+                <li><a href="index.html#profile" data-section="profile"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="#" id="theme-toggle"><i class="fas fa-moon"></i> Dark Mode</a></li>
+                <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="dashboard-header">
+            <div class="header-left">
+                <button class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <h2>Welcome, Adv. [Lawyer Name]</h2>
+            </div>
+            <div class="header-right">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search cases, clients...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge">3</span>
+                </div>
+                <div class="user-profile">
+                    <img src="assets/user-avatar.png" alt="User Avatar">
+                </div>
+            </div>
+        </header>
+        <section class="content-section active">
+            <div class="container">
+                <div class="case-header">
+                    <h2 class="section-title">Case #1234: IPC 302</h2>
+                    <button class="btn btn-primary" onclick="openModal('editCase')">Edit Case</button>
+                </div>
+                <div class="case-details">
+                    <div class="case-info">
+                        <h3>Case Information</h3>
+                        <p><strong>Client:</strong> <a href="client-profile.html">Mr. Anil Kumar</a></p>
+                        <p><strong>Court:</strong> Delhi High Court</p>
+                        <p><strong>Case Type:</strong> Criminal</p>
+                        <p><strong>Next Hearing:</strong> 25 Apr 2025</p>
+                        <p><strong>Status:</strong> Pending</p>
+                        <p><strong>Progress:</strong> 60%</p>
+                        <div class="case-progress">
+                            <div class="progress-bar"><div style="width: 60%;"></div></div>
+                        </div>
+                    </div>
+                    <div class="case-timeline">
+                        <h3>Case Timeline</h3>
+                        <ul>
+                            <li>10 Jan 2025: Case Filed</li>
+                            <li>15 Feb 2025: First Hearing</li>
+                            <li>25 Apr 2025: Upcoming Hearing</li>
+                        </ul>
+                    </div>
+                    <div class="case-documents">
+                        <h3>Documents</h3>
+                        <input type="file" id="document-upload">
+                        <ul>
+                            <li>Petition.pdf <a href="#">Download</a> | <a href="#">Delete</a></li>
+                            <li>Evidence1.jpg <a href="#">Download</a> | <a href="#">Delete</a></li>
+                        </ul>
+                    </div>
+                    <div class="case-notes">
+                        <h3>Notes</h3>
+                        <textarea placeholder="Add a note..."></textarea>
+                        <button class="btn btn-primary">Save Note</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
